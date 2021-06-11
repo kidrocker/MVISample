@@ -2,4 +2,7 @@
     <string name="app_name">Paypay</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="convert">Convert</string>
+    <string name="enter_amount_you_with_to_convert">Enter amount you with to convert</string>
+    <string name="select_currency_to_convert">Select currency to convert</string>
 </resources>

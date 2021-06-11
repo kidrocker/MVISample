@@ -9,6 +9,5 @@ object GlobalUtils {
     // Since this is test we will return
     fun getBaseUrl(): String {
         return "https://api.currencylayer.com/"
-        }
     }
 }
