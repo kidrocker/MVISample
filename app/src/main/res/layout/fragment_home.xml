@@ -39,7 +39,7 @@
         app:layout_constraintGuide_percent="0.02" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/locationNameText"
+        android:id="@+id/currency_amount_text"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
         app:icon="@drawable/ic_baseline_compare_arrows_24"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locationNameText" />
+        app:layout_constraintTop_toBottomOf="@+id/currency_amount_text" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/converted_list"
@@ -81,6 +81,8 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
+        android:visibility="gone"
+        tools:visibility="visible"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -88,4 +90,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/convert_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

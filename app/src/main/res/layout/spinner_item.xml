@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="6dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/currency_title_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textSize="14sp"
+        tools:text="Currency Title" />
+
+    <TextView
+        android:id="@+id/currency_code_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="12sp"
+        tools:text="Currency code" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/darker_gray"/>
+
+</LinearLayout>
