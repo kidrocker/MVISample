@@ -29,18 +29,25 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var loader: ProgressBar
     private lateinit var adapter: ConversionListAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onResume() {
+        super.onResume()
         subScribeObservers()
         adapter = ConversionListAdapter(context)
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        unSubScribeObservers()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // initialize items
+        // initialize the views
         val convertButton = view.findViewById<Button>(R.id.convert_button)
-        val currencyDropdown = view.findViewById<TextInputLayout>(R.id.from_text).editText as AutoCompleteTextView
+        val currencyDropdown =
+            view.findViewById<TextInputLayout>(R.id.from_text).editText as AutoCompleteTextView
         val currencies = GlobalUtils.stringToCurrencyList(context)
         val currencyAdapter = context?.let { DropdownAdapter(it, currencies) }
         loader = view.findViewById(R.id.progressBar)
@@ -55,7 +62,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             currencyDropdown.setText(currency.name)
         }
 
-
         convertButton.setOnClickListener {
             val amount = conversionAmount.editText?.text.toString()
             if (this::currency.isInitialized && amount.isNotBlank()) {
@@ -69,6 +75,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         convertedList.adapter = adapter
     }
 
+    /**
+     * Subscribe observers
+     * allow ui to react to state changes
+     */
     private fun subScribeObservers() {
         conversionViewModel.dataState.observe(this, { dataState ->
 
@@ -93,5 +103,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         })
     }
+
+
+    /**
+     * unsubscribe from observers
+     */
+    private fun unSubScribeObservers() {
+        conversionViewModel.dataState.removeObservers(this)
+    }
+
 
 }

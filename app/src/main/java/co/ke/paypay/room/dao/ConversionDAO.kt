@@ -15,7 +15,7 @@ interface ConversionDAO {
 
     @Transaction
     @Query("SELECT * FROM conversion WHERE id=:id")
-    suspend fun getConversion(id: Int): ConversionWithQuote
+    suspend fun getConversion(id: Long): ConversionWithQuote
 
     @Transaction
     @Query("SELECT * FROM conversion LIMIT 1")
