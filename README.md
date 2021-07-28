@@ -1,2 +1,2 @@
-# PayBay
+# Test project
 MVI Sample project
